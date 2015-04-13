@@ -3,20 +3,23 @@ package com.hdu.coolweather.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
+
+
 
 /**
  * Created by hdu on 15/4/10.
  */
 public class CoolWeatherOpenHelper extends SQLiteOpenHelper {
-    /**
-     * Province表建表语句 */
+     /* Province表建表语句 */
     public static final String CREATE_PROVINCE = "create table Province ("
             + "id integer primary key autoincrement, "
             + "province_name text, "
             + "province_code text)";
-    /**
-     * City表建表语句 */
+    /*
+     * City表建表语句
+     */
     public static final String CREATE_CITY = "create table City ("
             + "id integer primary key autoincrement, "
             + "city_name text, "
@@ -41,5 +44,6 @@ public class CoolWeatherOpenHelper extends SQLiteOpenHelper {
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-    } }
+    }
+}
 

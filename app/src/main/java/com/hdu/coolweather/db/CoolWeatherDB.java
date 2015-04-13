@@ -17,10 +17,12 @@ import java.util.List;
  */
 public class CoolWeatherDB {
     /**
-     * 数据库名 */
+     * 数据库名
+     */
     public static final String DB_NAME = "cool_weather";
     /**
-     * 数据库版本 */
+     * 数据库版本
+     */
     public static final int VERSION = 1;
     private static CoolWeatherDB coolWeatherDB;
     private SQLiteDatabase db;
@@ -55,7 +57,8 @@ public class CoolWeatherDB {
         Cursor cursor = db.query("Province", null, null, null, null, null, null);
         if (cursor.moveToFirst()) {
             do {
-                Province province = new Province(); province.setId(cursor.getInt(cursor.getColumnIndex("id")));
+                Province province = new Province();
+                province.setId(cursor.getInt(cursor.getColumnIndex("id")));
                 province.setProvinceName(cursor.getString(cursor.getColumnIndex("province_name")));
                 province.setProvinceCode(cursor.getString(cursor.getColumnIndex("province_code")));
                 list.add(province);
@@ -101,7 +104,8 @@ public class CoolWeatherDB {
             values.put("county_code", county.getCountyCode());
             values.put("city_id", county.getCityId());
             db.insert("County", null, values);
-        } }
+        }
+    }
     /**
      * 从数据库读取某城市下所有的县信息。 */
     public List<County> loadCounties(int cityId) {
