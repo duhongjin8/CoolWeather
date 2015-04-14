@@ -12,21 +12,18 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
  * Created by hdu on 15/4/10.
  */
 public class CoolWeatherOpenHelper extends SQLiteOpenHelper {
-     /* Province表建表语句 */
+     /* Province Table SQL build */
     public static final String CREATE_PROVINCE = "create table Province ("
             + "id integer primary key autoincrement, "
             + "province_name text, "
             + "province_code text)";
-    /*
-     * City表建表语句
-     */
+    /* City Table SQl build */
     public static final String CREATE_CITY = "create table City ("
             + "id integer primary key autoincrement, "
             + "city_name text, "
             + "city_code text, "
             + "province_id integer)";
-    /**
-     * County表建表语句 */
+    /* County Table SQL build */
     public static final String CREATE_COUNTY = "create table County ("
             + "id integer primary key autoincrement, "
             + "county_name text, "
@@ -38,9 +35,9 @@ public class CoolWeatherOpenHelper extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREATE_PROVINCE); // 创建Province表
-        db.execSQL(CREATE_CITY); // 创建City表
-        db.execSQL(CREATE_COUNTY); // 创建County表
+        db.execSQL(CREATE_PROVINCE); // Build Province Table
+        db.execSQL(CREATE_CITY); // Build City Table
+        db.execSQL(CREATE_COUNTY); // Build County Table
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
