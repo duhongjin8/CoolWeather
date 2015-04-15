@@ -24,8 +24,12 @@
         <service
             android:name="com.hdu.coolweather.service.AutoUpdateService">
         </service>
+
         <receiver
             android:name="com.hdu.coolweather.receiver.AutoUpdateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.extra.ALARM_COUNT" />
+            </intent-filter>
         </receiver>
 
     </application>

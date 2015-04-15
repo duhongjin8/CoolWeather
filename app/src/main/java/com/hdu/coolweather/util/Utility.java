@@ -21,7 +21,7 @@ import java.util.Locale;
  * Created by hdu on 15/4/10.
  */
 public class Utility {
-    /* analyse province info query from server */
+    /* resolve province info queried from server */
     public synchronized static boolean handleProvincesResponse(CoolWeatherDB coolWeatherDB, String response) {
         if (!TextUtils.isEmpty(response)) {
             String[] allProvinces = response.split(",");
@@ -38,7 +38,7 @@ public class Utility {
         }
         return false;
     }
-    /* analyse city info query from server */
+    /* resolve city info queried from server */
     public static boolean handleCitiesResponse(CoolWeatherDB coolWeatherDB, String response, int provinceId) {
         if (!TextUtils.isEmpty(response)) {
             String[] allCities = response.split(",");
@@ -56,7 +56,7 @@ public class Utility {
         }
         return false;
     }
-    /* analyse county info query from server */
+    /* resolve county info queried from server */
     public static boolean handleCountiesResponse(CoolWeatherDB coolWeatherDB, String response, int cityId) {
         if (!TextUtils.isEmpty(response)) {
             String[] allCounties = response.split(",");
@@ -76,7 +76,7 @@ public class Utility {
     }
 
 
-    /* analyse JSON from server and save it to local space */
+    /* reslove JSON from server and save it to local space */
     public static void handleWeatherResponse(Context context, String response) {
         try {
             JSONObject jsonObject = new JSONObject(response);

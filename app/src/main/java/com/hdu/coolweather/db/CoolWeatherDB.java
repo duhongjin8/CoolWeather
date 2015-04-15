@@ -59,7 +59,7 @@ public class CoolWeatherDB {
         }
         return list;
     }
-    /* Put City instance to databse */
+    /* Put City instance to database */
     public void saveCity(City city) {
         if (city != null) {
             ContentValues values = new ContentValues();

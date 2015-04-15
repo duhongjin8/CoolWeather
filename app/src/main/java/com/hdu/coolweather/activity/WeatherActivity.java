@@ -62,7 +62,7 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
             cityNameText.setVisibility(View.INVISIBLE);
             queryWeatherCode(countyCode);
         } else {
-            // if no county, show weather info
+            // if no county -- back from ChooseAreaActivity, show weather info
             showWeather();
         }
         switchCity.setOnClickListener(this);
@@ -110,7 +110,7 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
             public void onFinish(final String response) {
                 if ("countyCode".equals(type)) {
                     if (!TextUtils.isEmpty(response)) {
-                        // analyse weather code
+                        // resolve weather code
                         String[] array = response.split("\\|");
                         if (array != null && array.length == 2) {
                             String weatherCode = array[1];
@@ -118,7 +118,7 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
                         }
                     }
                 } else if ("weatherCode".equals(type)) {
-                    // analyse weather info
+                    // resolve weather info
                     Utility.handleWeatherResponse(WeatherActivity.this, response);
                     runOnUiThread(new Runnable() {
                         @Override
@@ -153,7 +153,7 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
         weatherInfoLayout.setVisibility(View.VISIBLE);
         cityNameText.setVisibility(View.VISIBLE);
         Intent intent = new Intent(this, AutoUpdateService.class);
-        startService(intent);
+        startService(intent); //start AutoUpdate Service at Background
     }
 
 }
